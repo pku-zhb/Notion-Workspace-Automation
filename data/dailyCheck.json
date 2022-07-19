@@ -1,0 +1,22 @@
+{
+    "_description":"to set the links and of daily checks",
+    
+    "configurations":[
+        {
+            "block_id":"578ff9291ff24a8fad1baf3b9cb2fd47",
+            "database_id":"c6fc9803c2124d64811418e3c1a67483"
+        },
+        {
+            "block_id":"eab76b03f41c4ab9b9f1109664835211",
+            "database_id":"96bbff71c28042ac9c1aa08f2fe6cd46"
+        },
+        {
+            "block_id":"62feb6e25668477c9a4290d28b9c9043",
+            "database_id":"edf0efb036154a42abb3e8a8c8abab10"
+        },
+        {
+            "block_id":"9b1d52fd934743a4b9a3dfa6988aa65a",
+            "database_id":"b920a7ba8dc744328a6d3f7255761d1e"
+        }
+    ]
+}

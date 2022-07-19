@@ -1,0 +1,21 @@
+{
+    "_description":"to store the various jobs about analysis of database",
+    "_freq_para":"for 'repeatMinutes' type, the frequency is quantified in minutes, int",
+    "configurations":{
+        "pushToGithub":{
+            "freq_type":"repeatMinutes",
+            "freq_para":0.4, 
+            "_description":"commit and push updated data to github public pages"
+        },
+        "test":{
+            "freq_type":"repeatMinutes",
+            "freq_para":10, 
+            "_description":"a test sample"
+        },
+        "test2":{
+            "freq_type":"atFixedTime",
+            "freq_para":"23:30",
+            "_description":"a test2 sample"
+        }
+    }
+}
