@@ -1,4 +1,3 @@
-from multiprocessing.dummy import JoinableQueue
 import schedule
 import time
 import json
