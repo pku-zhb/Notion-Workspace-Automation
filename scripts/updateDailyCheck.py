@@ -34,7 +34,7 @@ def get_blockContent(block_id):
     time.sleep(0.4) 
     return response.json()['to_do']['rich_text']
 
-def retrive_db(database_id):
+def retrieve_db(database_id):
     url = "https://api.notion.com/v1/pages/"
     url += "ee68f7cd5ca340e29c06136d8b6e0a33" 
     # url += "/children"
@@ -92,11 +92,10 @@ def main():
     # for job in config['configurations']:
         # clearCheckbox(job['block_id'])
         # content = get_blockContent(job['block_id'])
-        # retrive_db(job['database_id'])
+        # retrieve_db(job['database_id'])
     
     prop = test('96d6614a7e9e4a9ea52b5574e7e8a811')
     test_post('57e061fe4b3547d0928fb354978fea2f', prop)
-
 
 
     
