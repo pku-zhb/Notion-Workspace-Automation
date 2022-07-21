@@ -1,104 +1,48 @@
 
-import requests
-import secrets
-import json
+import imp
+
+
+import sys
+import os
 import time
+sys.path.append(".")
 
-def decoder(x):
-    return [i for i in x]
-
-def clearCheckbox(block_id):
-    url = "https://api.notion.com/v1/blocks/" + block_id
-    payload = {
-        "to_do": {
-            "checked":False
-        }
-    }
-    header = {
-        'Authorization':secrets.NOTION_TOKEN,
-        'Accept':"application/json",
-        'Notion-Version': "2022-06-28",
-        'Content-Type': "application/json"
-    }
-    requests.patch(url, json=payload, headers=header)
-    time.sleep(0.4) # 每个requests后面停0.4s，防止超notion的请求频率
-
-def get_blockContent(block_id):
-    url = "https://api.notion.com/v1/blocks/" + block_id
-    header = {
-        'Authorization':secrets.NOTION_TOKEN,
-        'Notion-Version': "2022-06-28",
-        'Content-Type': "application/json"
-    }
-    response = requests.get(url,headers=header)
-    time.sleep(0.4) 
-    return response.json()['to_do']['rich_text']
-
-def retrieve_db(database_id):
-    url = "https://api.notion.com/v1/pages/"
-    url += "ee68f7cd5ca340e29c06136d8b6e0a33" 
-    # url += "/children"
-    header = {
-        'Authorization':secrets.NOTION_TOKEN,
-        'Notion-Version': "2022-06-28",
-        'Content-Type': "application/json"
-    }
-    response = requests.get(url,headers=header)
-    time.sleep(0.4)
-    # print(response)
-    print(json.dumps(response.json(), indent=4))
-
-def test(database_id):
-    url = "https://api.notion.com/v1/pages/" + database_id
-    # url += "/children"
-    header = {
-        'Authorization':secrets.NOTION_TOKEN,
-        'Notion-Version': "2021-05-13",
-        # 'Content-Type': "application/json"
-    }
-    response = requests.get(url,headers=header)
-    time.sleep(0.4)
-    # print(response)
-    return response.json()['properties']
-
-def test_post(block_id, prop):
-    url = "https://api.notion.com/v1/pages/"
-    header = {
-        'Authorization':secrets.NOTION_TOKEN,
-        'Notion-Version': "2021-05-13",
-        'Accept': "application/json",
-        'Content-Type': "application/json"
-    }
-    payload = {
-        "parent":{
-            "type": "database_id",
-            "database_id": block_id
-            },
-        # "properties": prop
-    }
-    response = requests.post(url,headers=header, json = payload)
-    time.sleep(0.4)
-    # print(response)
-    print(json.dumps(response.json(), indent=4))
-
+import json
+from modules.notionClients import Block, Database, Page
+from modules.Tools import generate_payload, de_id_char
 
 def main():
 
-    # url =  BLOCK_ID
-    # retrieve(url)
-    # update(url)
-    with open('../appData/dailyCheck.json','r') as f:
-        config = json.load(f)
-    # for job in config['configurations']:
-        # clearCheckbox(job['block_id'])
-        # content = get_blockContent(job['block_id'])
-        # retrieve_db(job['database_id'])
+    with open("./data/dailyCheck.json",'r') as f:
+        task_json = json.load(f)
     
-    prop = test('96d6614a7e9e4a9ea52b5574e7e8a811')
-    test_post('57e061fe4b3547d0928fb354978fea2f', prop)
+    for task in task_json["configurations"]:
+        database_id = task['target_database_id']
+        database = Database(os.getenv("NOTION_TOKEN"),database_id)
+        new_record_response = database.new_record()
+        
+        record_page_id = de_id_char(new_record_response["id"])
+        record_page = Page(os.getenv("NOTION_TOKEN"),record_page_id)
+
+        today_str = time.strftime("%Y-%m-%d")
+        record_page_init_payload = task["new_record_init_payload"]
+        record_page_init_payload = generate_payload(record_page_init_payload,today_str)
+        
+        init_rew_record_response = record_page.modify_content(record_page_init_payload)
+        
+        
+        target_block_id = task['target_block_id']
+        block = Block(os.getenv("NOTION_TOKEN"),target_block_id)
+
+        block_update_payload = task["target_block_update_payload"]
+        herf = "/" + record_page_id
+        payload = generate_payload(block_update_payload, herf)
+
+        update_response = block.modify_content(payload)
 
 
     
 
 if __name__ == '__main__':
     main()
+    # print(time.strftime("%-Y",time.localtime()))

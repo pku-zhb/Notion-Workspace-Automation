@@ -1,7 +1,9 @@
 # Byte-compiled / optimized / DLL files
 .vscode/
-*.ipynb
-test.py
+
+# additions
+debugger.ipynb
+debug.json
 
 __pycache__/
 *.py[cod]

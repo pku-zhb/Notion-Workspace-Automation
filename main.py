@@ -12,14 +12,17 @@ class jobClass():
         self.freq_para = freq_para
     
     def do(self):
-        os.system(r'python .\scripts\{}.py'.format(self.name))
+        print(self.name, " executed")
+        os.system("python ./scripts/" + self.name + ".py")
 
 
 def loadJobs():
-    with open(r".\appData\jobs.json", 'r') as f:
+    with open("./data/jobs.json", 'r') as f:
         _jobs = json.load(f)
+
     for key, value in _jobs['configurations'].items():
         jobs.append(jobClass(key,value['freq_type'],value['freq_para']))
+
     for job in jobs:
         if job.freq_type == 'repeatMinutes':
             schedule.every(job.freq_para).minutes.do(job.do)
@@ -30,7 +33,7 @@ def loadJobs():
 def main():
     loadJobs()
     while True:
-        print("i'm running")
+        print("program is running")
         schedule.run_pending()
         time.sleep(SCEDULE_TIME)
 

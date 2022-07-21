@@ -1,16 +1,12 @@
 {
     "_description":"to set the links and of daily checks",
     
-    "configuration":{
-      "target_type":"block",
-      "resources_type":"database"  
-    },
 
-    "ids":[
+    "configurations":[
         {
-            "target_id":"578ff9291ff24a8fad1baf3b9cb2fd47",
-            "resources_id":"c6fc9803c2124d64811418e3c1a67483",
-            "update_position":{
+            "target_block_id":"578ff9291ff24a8fad1baf3b9cb2fd47",
+            "target_database_id":"15844babd35944d996b01d3f5c5509b1",
+            "target_block_update_payload":{
                 "to_do":{
                     "rich_text":[
                         {
@@ -29,12 +25,30 @@
                     ],
                     "checked":false   
                 }
+            },
+            "new_record_init_payload":{
+                "properties":{
+                    "Name":{
+                        "title":[
+                            {
+                                "text":{
+                                    "content":"Droplet auto generated"
+                                }
+                            }
+                        ]
+                    },   
+                    "Date":{
+                        "date":{
+                            "start":"update_me"
+                        }
+                    }
+                }
             }
         },
         {
-            "target_id":"eab76b03f41c4ab9b9f1109664835211",
-            "resources_id":"96bbff71c28042ac9c1aa08f2fe6cd46",
-            "update_position":{
+            "target_block_id":"eab76b03f41c4ab9b9f1109664835211",
+            "target_database_id":"e465187793b440be8c1164736c7ecb5a",
+            "target_block_update_payload":{
                 "to_do":{
                     "rich_text":[
                         {
@@ -53,12 +67,30 @@
                     ],
                     "checked":false   
                 }
+            },
+            "new_record_init_payload":{
+                "properties":{
+                    "Name":{
+                        "title":[
+                            {
+                                "text":{
+                                    "content":"Droplet auto generated"
+                                }
+                            }
+                        ]
+                    },   
+                    "Date":{
+                        "date":{
+                            "start":"update_me"
+                        }
+                    }
+                }
             }
         },
         {
-            "target_id":"62feb6e25668477c9a4290d28b9c9043",
-            "resources_id":"edf0efb036154a42abb3e8a8c8abab10",
-            "update_position":{
+            "target_block_id":"62feb6e25668477c9a4290d28b9c9043",
+            "target_database_id":"2a4875d903f6430fa81f57ebc7c8343b",
+            "target_block_update_payload":{
                 "to_do":{
                     "rich_text":[
                         {
@@ -77,12 +109,30 @@
                     ],
                     "checked":false   
                 }
+            },
+            "new_record_init_payload":{
+                "properties":{
+                    "Name":{
+                        "title":[
+                            {
+                                "text":{
+                                    "content":"Droplet auto generated"
+                                }
+                            }
+                        ]
+                    },   
+                    "Date":{
+                        "date":{
+                            "start":"update_me"
+                        }
+                    }
+                }
             }
         },
         {
-            "target_id":"9b1d52fd934743a4b9a3dfa6988aa65a",
-            "resources_id":"b920a7ba8dc744328a6d3f7255761d1e",
-            "update_position":{
+            "target_block_id":"9b1d52fd934743a4b9a3dfa6988aa65a",
+            "target_database_id":"1f45bba7fda047e09c21d0d5a5ebe8fb",
+            "target_block_update_payload":{
                 "to_do":{
                     "rich_text":[
                         {
@@ -100,6 +150,24 @@
                         }
                     ],
                     "checked":false   
+                }
+            },
+            "new_record_init_payload":{
+                "properties":{
+                    "Name":{
+                        "title":[
+                            {
+                                "text":{
+                                    "content":"Droplet auto generated"
+                                }
+                            }
+                        ]
+                    },   
+                    "Date":{
+                        "date":{
+                            "start":"update_me"
+                        }
+                    }
                 }
             }
         }

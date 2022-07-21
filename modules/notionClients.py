@@ -1,4 +1,5 @@
 from urllib import response
+from numpy import deprecate
 import requests
 import json
 import time
@@ -32,6 +33,7 @@ class Database(Client):
         response = requests.post(url, json=payload, headers=headers)
         return response.json()
 
+    # deprecated
     @rest
     def get_elements_text(self, attribute):
         url =  url = f"https://api.notion.com/v1/databases/{self.id}/query"
@@ -94,6 +96,7 @@ class Page(Client):
         response = requests.get(url, headers=headers)
         return response.json()
     
+    # deprecated
     @rest
     def modify_text_prop(self, prop, content):
         url =  url = f"https://api.notion.com/v1/pages/{self.id}"
@@ -117,6 +120,19 @@ class Page(Client):
         response = requests.patch(url, headers=headers, json=payload)
         return response.json()
 
+    @rest
+    def modify_content(self, payload):
+        url = f"https://api.notion.com/v1/pages/{self.id}"
+        payload = payload
+        headers = {
+            'Authorization':f"Bearer {self.api_key}",
+            'Accept':"application/json",
+            'Notion-Version': "2022-06-28",
+            'Content-Type': "application/json"
+        }
+        response = requests.patch(url, json=payload, headers=headers)
+        return response.json()
+
 class Block(Client):
     def __init__(self, api_key, block_id) -> None:
         super().__init__(api_key)
@@ -135,7 +151,7 @@ class Block(Client):
         return response.json()
 
     @rest
-    def modify_block_content(self, payload):
+    def modify_content(self, payload):
         url = f"https://api.notion.com/v1/blocks/{self.id}"
         payload = payload
         headers = {
