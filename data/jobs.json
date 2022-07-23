@@ -3,7 +3,11 @@
     "configurations":{
         "updateDailyCheck":{
             "freq_type":"atFixedTime",
-            "freq_para":"00:46"
+            "freq_para":"04:30"
+        },
+        "calculateDailycheckScore":{
+            "freq_type":"atFixedTime",
+            "freq_para":"04:33"
         }
     }
 }

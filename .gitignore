@@ -4,6 +4,7 @@
 # additions
 debugger.ipynb
 debug.json
+KEY.py
 
 __pycache__/
 *.py[cod]

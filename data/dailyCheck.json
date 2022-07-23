@@ -4,6 +4,7 @@
 
     "configurations":[
         {
+            "_name":"exercise",
             "target_block_id":"578ff9291ff24a8fad1baf3b9cb2fd47",
             "target_database_id":"15844babd35944d996b01d3f5c5509b1",
             "target_block_update_payload":{
@@ -27,12 +28,16 @@
                 }
             },
             "new_record_init_payload":{
+                "icon":{
+                    "type": "emoji",
+                    "emoji": "\ud83c\udfca"
+                },
                 "properties":{
                     "Name":{
                         "title":[
                             {
                                 "text":{
-                                    "content":"Droplet auto generated"
+                                    "content":"Exercise record (Droplet generated)"
                                 }
                             }
                         ]
@@ -46,6 +51,7 @@
             }
         },
         {
+            "_name":"reading",
             "target_block_id":"eab76b03f41c4ab9b9f1109664835211",
             "target_database_id":"e465187793b440be8c1164736c7ecb5a",
             "target_block_update_payload":{
@@ -69,12 +75,16 @@
                 }
             },
             "new_record_init_payload":{
+                "icon":{
+                    "type": "emoji",
+                    "emoji": "\ud83d\udcd6"
+                },
                 "properties":{
                     "Name":{
                         "title":[
                             {
                                 "text":{
-                                    "content":"Droplet auto generated"
+                                    "content":"Reading record (Droplet generated)"
                                 }
                             }
                         ]
@@ -88,6 +98,7 @@
             }
         },
         {
+            "_name":"meditating",
             "target_block_id":"62feb6e25668477c9a4290d28b9c9043",
             "target_database_id":"2a4875d903f6430fa81f57ebc7c8343b",
             "target_block_update_payload":{
@@ -111,12 +122,16 @@
                 }
             },
             "new_record_init_payload":{
+                "icon":{
+                    "type": "emoji",
+                    "emoji": "\ud83e\uddd8\u200d\u2642\ufe0f"
+                },
                 "properties":{
                     "Name":{
                         "title":[
                             {
                                 "text":{
-                                    "content":"Droplet auto generated"
+                                    "content":"Meditating record (Droplet generated)"
                                 }
                             }
                         ]
@@ -130,6 +145,7 @@
             }
         },
         {
+            "_name":"health diet",
             "target_block_id":"9b1d52fd934743a4b9a3dfa6988aa65a",
             "target_database_id":"1f45bba7fda047e09c21d0d5a5ebe8fb",
             "target_block_update_payload":{
@@ -153,12 +169,16 @@
                 }
             },
             "new_record_init_payload":{
+                "icon":{
+                    "type": "emoji",
+                    "emoji": "\ud83e\udd66"
+                },
                 "properties":{
                     "Name":{
                         "title":[
                             {
                                 "text":{
-                                    "content":"Droplet auto generated"
+                                    "content":"Health diet record (Droplet generated)"
                                 }
                             }
                         ]

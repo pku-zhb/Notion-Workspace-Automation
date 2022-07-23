@@ -21,9 +21,8 @@ class Database(Client):
         self.id = database_id
     
     @rest
-    def get_json(self):
+    def get_json(self, payload = {"page_size": 100}):
         url =  url = f"https://api.notion.com/v1/databases/{self.id}/query"
-        payload = {"page_size": 100}
         headers = {
             "Accept": "application/json",
             "Notion-Version": "2021-08-16",
