@@ -30,7 +30,7 @@ def calculate_score(type,page_json):
             elif stars == 1:
                 score = 3
 
-            type_amount = len(page_json["properties"]["Type"]) 
+            type_amount = len(page_json["properties"]["Type"]['multi_select']) 
             if type_amount == 1:
                 multiplier = 1
             elif type_amount == 2:
