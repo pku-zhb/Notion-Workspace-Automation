@@ -7,7 +7,11 @@
         },
         "calculateDailycheckScore":{
             "freq_type":"atFixedTime",
-            "freq_para":"04:33"
+            "freq_para":"04:40"
+        },
+        "archieveDoneToday":{
+            "freq_type":"atFixedTime",
+            "freq_para":"04:50"
         }
     }
 }
